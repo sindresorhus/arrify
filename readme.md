@@ -24,7 +24,7 @@ arrify(['unicorn']);
 arrify(null);
 //=> []
 
-arrift(undefined);
+arrify(undefined);
 //=> []
 ```
 
