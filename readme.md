@@ -13,7 +13,7 @@ $ npm install --save arrify
 ## Usage
 
 ```js
-var arrify = require('arrify');
+const arrify = require('arrify');
 
 arrify('unicorn');
 //=> ['unicorn']
