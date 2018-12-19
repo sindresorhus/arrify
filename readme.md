@@ -2,34 +2,35 @@
 
 > Convert a value to an array
 
-
 ## Install
 
 ```
 $ npm install --save arrify
 ```
 
-
 ## Usage
 
 ```js
-const arrify = require('arrify');
+const arrify = require('arrify')
 
-arrify('unicorn');
+arrify('unicorn')
 //=> ['unicorn']
 
-arrify(['unicorn']);
+arrify(['unicorn'])
 //=> ['unicorn']
 
-arrify(null);
+arrify(null)
 //=> []
 
-arrify(undefined);
+arrify(undefined)
 //=> []
+
+arrify([1, [2, [3]]], true)
+//=> [1, 2, 3]
+// (optionally pass 'true' (as second argument) for flattening)
 ```
 
-*Supplying `null` or `undefined` results in an empty array.*
-
+_Supplying `null` or `undefined` results in an empty array._
 
 ## License
 
