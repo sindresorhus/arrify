@@ -1,8 +1,24 @@
 'use strict';
-module.exports = function (val) {
-	if (val === null || val === undefined) {
+
+const arrify = value => {
+	if (value === null || value === undefined) {
 		return [];
 	}
 
-	return Array.isArray(val) ? val : [val];
+	if (Array.isArray(value)) {
+		return value;
+	}
+
+	if (typeof value === 'string') {
+		return [value];
+	}
+
+	if (typeof value[Symbol.iterator] === 'function') {
+		return [...value];
+	}
+
+	return [value];
 };
+
+module.exports = arrify;
+module.exports.default = arrify;

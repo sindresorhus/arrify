@@ -1,0 +1,11 @@
+import {expectType} from 'tsd';
+import arrify from '.';
+
+expectType<[]>(arrify(null));
+expectType<[]>(arrify(undefined));
+expectType<[string]>(arrify('🦄'));
+expectType<string[]>(arrify(['🦄']));
+expectType<([string | number, string | number])[]>(
+	arrify(new Map<string | number, string | number>([[1, 2], ['a', 'b']]))
+);
+expectType<number[]>(arrify(new Set([1, 2])));

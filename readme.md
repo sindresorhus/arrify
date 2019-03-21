@@ -15,11 +15,14 @@ $ npm install --save arrify
 ```js
 const arrify = require('arrify');
 
-arrify('unicorn');
-//=> ['unicorn']
+arrify('🦄');
+//=> ['🦄']
 
-arrify(['unicorn']);
-//=> ['unicorn']
+arrify(['🦄']);
+//=> ['🦄']
+
+arrify(new Set(['🦄']));
+//=> ['🦄']
 
 arrify(null);
 //=> []
