@@ -21,4 +21,3 @@ const arrify = value => {
 };
 
 module.exports = arrify;
-module.exports.default = arrify;

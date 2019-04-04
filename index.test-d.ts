@@ -1,5 +1,5 @@
 import {expectType} from 'tsd';
-import arrify from '.';
+import arrify = require('.');
 
 expectType<[]>(arrify(null));
 expectType<[]>(arrify(undefined));
