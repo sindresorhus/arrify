@@ -12,4 +12,4 @@ expectType<([string | number, string | number])[]>(
 	arrify(new Map<string | number, string | number>([[1, 2], ['a', 'b']]))
 );
 expectType<number[]>(arrify(new Set([1, 2])));
-expectType<ReadonlyArray<number>>(arrify([Number()] as const));
+expectError(arrify(['🦄'] as const).push(''));
