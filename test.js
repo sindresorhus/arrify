@@ -1,9 +1,13 @@
 import test from 'ava';
-import fn from './';
+import arrify from '.';
 
-test(t => {
-	t.is(fn('foo')[0], 'foo');
-	t.is(fn(['foo'])[0], 'foo');
-	t.is(fn(null)[0], undefined);
-	t.is(fn(undefined)[0], undefined);
+test('main', t => {
+	t.deepEqual(arrify('foo'), ['foo']);
+	t.deepEqual(arrify(new Map([[1, 2], ['a', 'b']])), [[1, 2], ['a', 'b']]);
+	t.deepEqual(arrify(new Set([1, 2])), [1, 2]);
+	t.deepEqual(arrify(null), []);
+	t.deepEqual(arrify(undefined), []);
+
+	const fooArray = ['foo'];
+	t.is(arrify(fooArray), fooArray);
 });
