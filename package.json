@@ -21,11 +21,11 @@
 	],
 	"keywords": [
 		"array",
-		"arr",
 		"arrify",
 		"arrayify",
 		"convert",
-		"value"
+		"value",
+		"ensure"
 	],
 	"devDependencies": {
 		"ava": "^1.4.1",
