@@ -28,5 +28,6 @@ declare function arrify(value: string): [string];
 declare function arrify<ValueType>(value: ValueType[]): ValueType[];
 declare function arrify<ValueType>(value: Iterable<ValueType>): ValueType[];
 declare function arrify<ValueType>(value: ValueType): [ValueType];
+declare function arrify<ValueType>(value: ValueType|ValueType[]): ValueType[];
 
 export = arrify;
