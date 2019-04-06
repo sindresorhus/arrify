@@ -1,4 +1,4 @@
-import {expectType} from 'tsd';
+import {expectType, expectError} from 'tsd';
 import arrify = require('.');
 
 expectType<[]>(arrify(null));
