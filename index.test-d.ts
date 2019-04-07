@@ -1,4 +1,4 @@
-import {expectType} from 'tsd';
+import {expectType, expectError} from 'tsd';
 import arrify = require('.');
 
 expectType<[]>(arrify(null));
@@ -12,3 +12,4 @@ expectType<([string | number, string | number])[]>(
 	arrify(new Map<string | number, string | number>([[1, 2], ['a', 'b']]))
 );
 expectType<number[]>(arrify(new Set([1, 2])));
+expectError(arrify(['🦄'] as const).push(''));
