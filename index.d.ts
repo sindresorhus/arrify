@@ -29,10 +29,8 @@ declare function arrify<ValueType>(
 	? []
 	: ValueType extends string
 	? [string]
-	: ValueType extends (infer T)[]
-	? T[]
-	: ValueType extends ReadonlyArray<infer T> // TODO: Use 'readonly (infer T)[]' in the next major version
-	? ReadonlyArray<T>
+	: ValueType extends ReadonlyArray<unknown> // TODO: Use 'readonly unknown[]' in the next major version
+	? ValueType
 	: ValueType extends Iterable<infer T>
 	? T[]
 	: [ValueType];
