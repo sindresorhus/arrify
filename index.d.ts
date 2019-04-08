@@ -23,12 +23,18 @@ arrify(undefined);
 //=> []
 ```
 */
-declare function arrify(value: null | undefined): [];
-declare function arrify(value: string): [string];
-declare function arrify<ValueType>(value: ValueType[]): ValueType[];
-// TODO: Use 'readonly ValueType[]' in the next major version
-declare function arrify<ValueType>(value: ReadonlyArray<ValueType>): ReadonlyArray<ValueType>;
-declare function arrify<ValueType>(value: Iterable<ValueType>): ValueType[];
-declare function arrify<ValueType>(value: ValueType): [ValueType];
+declare function arrify<ValueType>(
+	value: ValueType
+): ValueType extends (null | undefined)
+	? []
+	: ValueType extends string
+	? [string]
+	: ValueType extends (infer T)[]
+	? T[]
+	: ValueType extends ReadonlyArray<infer T> // TODO: Use 'readonly (infer T)[]' in the next major version
+	? ReadonlyArray<T>
+	: ValueType extends Iterable<infer T>
+	? T[]
+	: [ValueType];
 
 export = arrify;
