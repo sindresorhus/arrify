@@ -1,6 +1,6 @@
 {
 	"name": "arrify",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Convert a value to an array",
 	"license": "MIT",
 	"repository": "sindresorhus/arrify",
