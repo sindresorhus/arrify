@@ -1,7 +1,7 @@
 /**
 Convert a value to an array.
 
-_Supplying `null` or `undefined` results in an empty array._
+_Specifying `null` or `undefined` results in an empty array._
 
 @example
 ```
