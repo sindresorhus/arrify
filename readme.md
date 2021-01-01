@@ -1,4 +1,4 @@
-# arrify [![Build Status](https://travis-ci.org/sindresorhus/arrify.svg?branch=master)](https://travis-ci.org/sindresorhus/arrify)
+# arrify
 
 > Convert a value to an array
 
