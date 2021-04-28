@@ -2,18 +2,16 @@
 
 > Convert a value to an array
 
-
 ## Install
 
 ```
 $ npm install arrify
 ```
 
-
 ## Usage
 
 ```js
-const arrify = require('arrify');
+import arrify from 'arrify';
 
 arrify('🦄');
 //=> ['🦄']
@@ -32,7 +30,6 @@ arrify(undefined);
 ```
 
 *Specifying `null` or `undefined` results in an empty array.*
-
 
 ---
 

@@ -1,32 +1,33 @@
-import {expectType, expectError} from 'tsd';
-import arrify = require('.');
+/* eslint-disable  @typescript-eslint/ban-types */
+import {expectType, expectError, expectAssignable} from 'tsd';
+import arrify from './index.js';
 
 expectType<[]>(arrify(null));
 expectType<[]>(arrify(undefined));
 expectType<[string]>(arrify('🦄'));
 expectType<string[]>(arrify(['🦄']));
-expectType<[boolean]>(arrify(true));
+expectAssignable<[boolean]>(arrify(true));
 expectType<[number]>(arrify(1));
-expectType<[{}]>(arrify({}));
+expectAssignable<[Record<string, unknown>]>(arrify({}));
 expectType<[number, string]>(arrify([1, 'foo']));
-expectType<(string | boolean)[]>(
+expectType<Array<string | boolean>>(
 	arrify(new Set<string | boolean>(['🦄', true]))
 );
 expectType<number[]>(arrify(new Set([1, 2])));
 expectError(arrify(['🦄'] as const).push(''));
-expectType<number[] | []>(arrify(Boolean() ? [1, 2] : null));
-expectType<number[] | []>(arrify(Boolean() ? [1, 2] : undefined));
-expectType<number[] | [string]>(arrify(Boolean() ? [1, 2] : '🦄'));
-expectType<number[] | string[]>(arrify(Boolean() ? [1, 2] : ['🦄']));
-expectType<number[] | [boolean]>(arrify(Boolean() ? [1, 2] : true));
-expectType<number[] | [number]>(arrify(Boolean() ? [1, 2] : 3));
-expectType<number[] | [{}]>(arrify(Boolean() ? [1, 2] : {}));
-expectType<number[] | [number, string]>(
-	arrify(Boolean() ? [1, 2] : [1, 'foo'])
+expectType<[number, number] | []>(arrify(false ? [1, 2] : null));
+expectType<[number, number] | []>(arrify(false ? [1, 2] : undefined));
+expectType<[number, number] | [string]>(arrify(false ? [1, 2] : '🦄'));
+expectType<[number, number] | [string]>(arrify(false ? [1, 2] : ['🦄']));
+expectAssignable<number[] | [boolean]>(arrify(false ? [1, 2] : true));
+expectAssignable<number[] | [number]>(arrify(false ? [1, 2] : 3));
+expectAssignable<number[] | [Record<string, unknown>]>(arrify(false ? [1, 2] : {}));
+expectAssignable<number[] | [number, string]>(
+	arrify(false ? [1, 2] : [1, 'foo'])
 );
-expectType<number[] | (string | boolean)[]>(
-	arrify(Boolean() ? [1, 2] : new Set<string | boolean>(['🦄', true]))
+expectAssignable<number[] | Array<string | boolean>>(
+	arrify(false ? [1, 2] : new Set<string | boolean>(['🦄', true]))
 );
-expectType<number[] | [boolean] | [string]>(
-	arrify(Boolean() ? [1, 2] : Boolean() ? true : '🦄')
+expectAssignable<number[] | [boolean] | [string]>(
+	arrify(false ? [1, 2] : (false ? true : '🦄'))
 );

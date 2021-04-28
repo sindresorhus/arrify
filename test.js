@@ -1,5 +1,5 @@
 import test from 'ava';
-import arrify from '.';
+import arrify from './index.js';
 
 test('main', t => {
 	t.deepEqual(arrify('foo'), ['foo']);

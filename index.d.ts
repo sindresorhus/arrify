@@ -5,7 +5,7 @@ _Specifying `null` or `undefined` results in an empty array._
 
 @example
 ```
-import arrify = require('arrify');
+import arrify from 'arrify';
 
 arrify('🦄');
 //=> ['🦄']
@@ -23,16 +23,14 @@ arrify(undefined);
 //=> []
 ```
 */
-declare function arrify<ValueType>(
+export default function arrify<ValueType>(
 	value: ValueType
 ): ValueType extends (null | undefined)
-	? []
+	? [] // eslint-disable-line  @typescript-eslint/ban-types
 	: ValueType extends string
-	? [string]
-	: ValueType extends ReadonlyArray<unknown> // TODO: Use 'readonly unknown[]' in the next major version
-	? ValueType
-	: ValueType extends Iterable<infer T>
-	? T[]
-	: [ValueType];
-
-export = arrify;
+		? [string]
+		: ValueType extends readonly unknown[]
+			? ValueType
+			: ValueType extends Iterable<infer T>
+				? T[]
+				: [ValueType];

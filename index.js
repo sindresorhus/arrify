@@ -1,6 +1,4 @@
-'use strict';
-
-const arrify = value => {
+export default function arrify(value) {
 	if (value === null || value === undefined) {
 		return [];
 	}
@@ -18,6 +16,4 @@ const arrify = value => {
 	}
 
 	return [value];
-};
-
-module.exports = arrify;
+}
