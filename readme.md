@@ -2,10 +2,12 @@
 
 > Convert a value to an array
 
+*If you simply want to accept both a single value and multiple values, you can use `[singleValueOrArray].flat()` instead.*
+
 ## Install
 
-```
-$ npm install arrify
+```sh
+npm install arrify
 ```
 
 ## Usage
